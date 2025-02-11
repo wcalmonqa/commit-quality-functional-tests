@@ -1,5 +1,4 @@
 import { test, expect } from "../pages/Base";
-import { AddProductPage } from "../pages/AddProductPage";
 
 test.afterEach(async ({page}) => {
   await page.close()

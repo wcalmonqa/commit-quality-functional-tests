@@ -15,7 +15,7 @@ type MyFixtures = {
 
 export const test = base.extend<MyFixtures>({
   commonActions: async({page}, use) =>{
-    await use(new CommonActions())
+    await use(new CommonActions(page))
   },
   productsPage: async({page}, use) =>{
     await use(new ProductsPage(page))

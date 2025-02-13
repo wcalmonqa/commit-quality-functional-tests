@@ -15,3 +15,4 @@ test("Add product to the list", async({page, addProductPage, productsPage}) => {
   // Asserting that the 1st row of the table contains the product added before
   await expect(productsPage.productTableRow.nth(0).getByTestId("name")).toContainText("Product X")
 })
+

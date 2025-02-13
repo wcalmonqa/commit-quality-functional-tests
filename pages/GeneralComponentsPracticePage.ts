@@ -3,7 +3,7 @@ import { type Page, type Locator } from '@playwright/test'
 export class GeneralComponentsPracticePage{
   readonly page: Page
   readonly basicClickButton: Locator
-  readonly clickSuccessMessage: Locator
+  readonly successMessage: Locator
   readonly doubleClickButton: Locator
   readonly rightClickButton: Locator
   readonly radioButton1: Locator
@@ -16,18 +16,18 @@ export class GeneralComponentsPracticePage{
     this.rightClickButton = page.getByRole('button', { name: 'Right click me' })
     this.radioButton1 = page.getByRole('radio', { name: 'Radio button', exact: true })
     this.radioButton2 = page.getByRole('radio', { name: 'Radio button 2', exact: true })
-    this.clickSuccessMessage = page.getByRole('paragraph')
+    this.successMessage = page.getByRole('paragraph')
+  }
+  
+  public async doubleClickOnButton(desiredButton: Locator){
+    await desiredButton.dblclick()
   }
 
-  public async clickOn1stButton(){
-    await this.basicClickButton.click()
+  public async rightClickOnButton(desiredButton: Locator){
+    await desiredButton.click({ button: "right"})
   }
 
-  public async doubleClick2ndButton(){
-    await this.doubleClickButton.dblclick()
-  }
-
-  public async rightClick3rdButton(){
-    await this.rightClickButton.click({ button: "right"})
+  public async clickOnButton(desiredButton: Locator){
+    await desiredButton.click();
   }
 }

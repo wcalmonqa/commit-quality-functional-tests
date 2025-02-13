@@ -9,17 +9,17 @@ test.afterEach(async ({page}) =>{
   await page.close()
 })
 
-test("Clicking on 'Click me' Button", async({generalComponentsPracticePage}) =>{
-  await generalComponentsPracticePage.clickOn1stButton()
-  await expect(generalComponentsPracticePage.clickSuccessMessage).toContainText("Button clicked")
+test("Clicking on 'Click me' Button", async({commonActions, generalComponentsPracticePage}) =>{
+  await commonActions.clickOnButton(generalComponentsPracticePage.basicClickButton)
+  await expect(generalComponentsPracticePage.successMessage).toHaveText("Button clicked")
 })
 
-test("Double clicking on 'Double click me' button", async({generalComponentsPracticePage}) =>{
-  await generalComponentsPracticePage.doubleClick2ndButton()
-  await expect(generalComponentsPracticePage.clickSuccessMessage).toContainText("Button double clicked")
+test("Double clicking on 'Double click me' button", async({commonActions, generalComponentsPracticePage}) =>{
+  await commonActions.doubleClickOnButton(generalComponentsPracticePage.doubleClickButton)
+  await expect(generalComponentsPracticePage.successMessage).toHaveText("Button double clicked")
 })
 
-test("Right clicking on 'Right click me' button", async({generalComponentsPracticePage}) =>{
-	await generalComponentsPracticePage.rightClick3rdButton()
-	await expect(generalComponentsPracticePage.clickSuccessMessage).toContainText("Button right mouse clicked")
+test("Right clicking on 'Right click me' button", async({commonActions, generalComponentsPracticePage}) =>{
+	await commonActions.rightClickOnButton(generalComponentsPracticePage.rightClickButton)
+	await expect(generalComponentsPracticePage.successMessage).toHaveText("Button right mouse clicked")
 })
